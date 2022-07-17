@@ -23,7 +23,7 @@ const port = process.env.PORT || 8080;
 const start = async () => {
 	try {
 		await sequelize.authenticate();
-		console.log("Connection has been established successfully.");
+		console.log("Connection has been established successfully");
 
 		app.get("/", MessageController.createConnection);
 		app.use("/api", routeHandler);
