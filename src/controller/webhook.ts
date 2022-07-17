@@ -9,7 +9,7 @@ export default class WebhookService {
 		try {
 			const result = await axios.post(
 				WebhookService.url,
-				{ url: "https://089e-105-112-179-60.eu.ngrok.io/webhook" },
+				{ url: `https://${req.get("host")}/webhook` },
 				{
 					headers: {
 						"Content-Type": "application/json",
