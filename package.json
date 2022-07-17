@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node dist/server.js",
     "build": "tsc",
-    "postinstall": "npm run build",
     "dev": "nodemon dist/server.js"
   },
   "author": "Osazee Agbonze",
