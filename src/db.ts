@@ -1,13 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 import { Message, User } from "./model/model";
 
-const sequelize = new Sequelize({
-	database: "whatsapp",
-	dialect: "postgres",
-	username: "postgres",
-	password: "ikponmwosa1",
-	models: [__dirname + "/model/**/message.ts"], // or [Player, Team],
-});
+const sequelize = new Sequelize(process.env.CONNECTION_URL!);
 
 sequelize.addModels([User]);
 sequelize.addModels([Message]);
