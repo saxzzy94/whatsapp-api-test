@@ -12,13 +12,13 @@ Below is a series of step by step instructions that tell you how to get a develo
 **Create a local clone of the repository**
 
 ```
-git clone git@github.com:2wce/prisma-template.git
+git clone https://github.com/saxzzy94/whatsapp-api-test.git
 ```
 
 Enter the cloned repositories' directory
 
 ```
-cd prisma-template 
+cd whatsapp-api-test
 ```
 
 Create a .env file  with connection details, sandbox number and sanbox url 
