@@ -101,7 +101,7 @@ class MessageController {
 
 			apiKey = req.headers.authorization;
 
-			const username = MessageController.findName(to);
+			const username = await MessageController.findName(to);
 			const data = {
 				to: to,
 				type: "template",
