@@ -15,14 +15,14 @@ class MessageController {
 			console.log(error);
 		}
 	}
-	private static findName(to: any) {
-		User.findOne({ where: { user_id: to } }).then((user) => {
-			let name = "";
-			if (user) {
-				return (name = user.name);
-			}
-			return (name = "");
-		});
+	private static async findName(to: any): Promise<string> {
+		let username = "";
+		const user = await User.findOne({ where: { user_id: to } });
+		if (user) {
+			username = user.name;
+		}
+
+		return username;
 	}
 	private static async send(
 		data: any,
