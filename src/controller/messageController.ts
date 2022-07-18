@@ -75,7 +75,7 @@ class MessageController {
 				recipient_type: "individual",
 				to,
 				type: "text",
-				text: { content },
+				text: { body: content },
 			};
 
 			await MessageController.send(data, apiKey, body, res);
