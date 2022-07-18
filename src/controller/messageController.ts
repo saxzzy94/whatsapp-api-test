@@ -83,7 +83,7 @@ class MessageController {
 			console.log(err);
 			const message =
 				err.response.data.meta.developer_message ||
-				err.response.data.errors[0].title;
+				err.response.data.errors[0].details;
 			const statusCode = err.response.data.meta.http_code;
 			return next(new AppError(message, statusCode, true));
 		}
@@ -110,7 +110,10 @@ class MessageController {
 					language: { policy: "deterministic", code: "en" },
 					name: template_name,
 					components: [
-						{ type: "body", parameters: [{ type: "text", text: username }] },
+						{
+							type: "body",
+							parameters: [{ type: "text", text: username || "user" }],
+						},
 					],
 				},
 			};
@@ -119,7 +122,7 @@ class MessageController {
 		} catch (err: any) {
 			const message =
 				err.response.data.meta.developer_message ||
-				err.response.data.errors[0].title;
+				err.response.data.errors[0].details;
 			const statusCode = err.response.data.meta.http_code;
 			return next(new AppError(message, statusCode, true));
 		}
