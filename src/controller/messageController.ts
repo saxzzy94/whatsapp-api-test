@@ -78,7 +78,7 @@ class MessageController {
 				text: { body: content },
 			};
 
-			await MessageController.send(data, apiKey, body, res);
+			await MessageController.send(data, apiKey, content, res);
 		} catch (err: any) {
 			console.log(err);
 			const message =

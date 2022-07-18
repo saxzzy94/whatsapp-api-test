@@ -21,7 +21,7 @@ router.post(
 			.withMessage(
 				"input your whatsapp number beginning with country code, without +"
 			),
-		body("body").not().isEmpty(),
+		body("content").not().isEmpty().withMessage("content cannot be empty"),
 	],
 	errorCheck,
 	MessageController.sendMessge
@@ -36,7 +36,10 @@ router.post(
 			.withMessage(
 				"input your whatsapp number beginning with country code, without +"
 			),
-		body("template_name").not().isEmpty(),
+		body("template_name")
+			.not()
+			.isEmpty()
+			.withMessage("use the correct template name"),
 	],
 	errorCheck,
 	MessageController.sendTemplate
@@ -57,4 +60,4 @@ router.get(
 	MessageController.getInteraction
 );
 
-export default router
+export default router;
