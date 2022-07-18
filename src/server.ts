@@ -1,6 +1,7 @@
 import path from "path";
 import express from "express";
 import bodyParser from "body-parser";
+import cors from "cors";
 import dotenv from "dotenv";
 import sequelize from "./db";
 import MessageController from "./controller/messageController";
@@ -17,7 +18,7 @@ app.post("/webhook", WebhookService.manageWebhook);
 app.use(express.json());
 
 dotenv.config();
-
+app.use(cors());
 const port = process.env.PORT || 8080;
 
 const start = async () => {
